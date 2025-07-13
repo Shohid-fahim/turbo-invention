@@ -251,6 +251,69 @@ ul {
 
 
         </style>
+        <script>
+        // script.js
+
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const mainNav = document.querySelector('.main-nav');
+    const dropdownToggle = document.querySelector('.dropdown > a');
+
+    hamburgerMenu.addEventListener('click', () => {
+        mainNav.classList.toggle('active');
+    });
+
+    // Close nav when clicking outside on mobile
+    document.addEventListener('click', (event) => {
+        if (!mainNav.contains(event.target) && !hamburgerMenu.contains(event.target) && mainNav.classList.contains('active')) {
+            mainNav.classList.remove('active');
+        }
+    });
+
+    // Handle dropdown click on mobile to prevent immediate navigation
+    if (dropdownToggle) {
+        dropdownToggle.addEventListener('click', (event) => {
+            // Check if the dropdown is open or if it's on a mobile view
+            if (window.innerWidth <= 992) { // Match the media query breakpoint
+                event.preventDefault(); // Prevent default link behavior
+                const dropdownContent = event.target.nextElementSibling;
+                if (dropdownContent && dropdownContent.classList.contains('dropdown-content')) {
+                    dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+                }
+            }
+        });
+    }
+
+    // Optional: Close dropdowns when another one is opened
+    const dropdowns = document.querySelectorAll('.dropdown');
+    dropdowns.forEach(dropdown => {
+        dropdown.addEventListener('click', (event) => {
+            if (window.innerWidth <= 992) {
+                dropdowns.forEach(otherDropdown => {
+                    if (otherDropdown !== dropdown) {
+                        const otherContent = otherDropdown.querySelector('.dropdown-content');
+                        if (otherContent) {
+                            otherContent.style.display = 'none';
+                        }
+                    }
+                });
+            }
+        });
+    });
+
+    // Reset dropdown display on resize for desktop
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 992) {
+            document.querySelectorAll('.dropdown-content').forEach(content => {
+                content.style.display = ''; // Reset to default CSS
+            });
+            mainNav.classList.remove('active'); // Ensure nav is hidden if resized from mobile while open
+        }
+    });
+});
+
+
+        </script>
 </head>
 <body>
     <header class="main-header">
