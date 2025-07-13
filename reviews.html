@@ -1,354 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reminder Perfumes - Home</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio of Hannah Morales</title>
+<style>
+body {
+font-family: sans-serif;
+margin: 0;
+padding: 20px;
+background-color: #f4f9f7; /* Light green background */
+color: #333;
+line-height: 1.6;
+display: flex;
+justify-content: center;
+}
+    .container {
+        max-width: 800px;
+        background-color: #fff;
+        padding: 40px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
 
-    <style>
-        :root {
-            --primary-color: #F8F5F1; /* Light cream */
-            --secondary-color: #5A5A5A; /* Dark gray for text */
-            --accent-color-1: #8B4513; /* Saddle Brown - a rich brown for elegance */
-            --accent-color-2: #B8860B; /* Dark Goldenrod - for gold accents */
-            --text-light: #ECECEC;
-            --text-dark: #333333;
-        }
+    /* Hero Section */
+    .hero {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        margin-bottom: 40px;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    .hero-info {
+        flex: 1;
+    }
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--text-dark);
-            line-height: 1.6;
-            background-color: var(--primary-color);
-        }
+    .hero-info h1 {
+        font-size: 2.5em;
+        color: #1e7e64; /* Dark teal */
+        margin-bottom: 5px;
+    }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+    .hero-info p {
+        color: #4a9e87; /* Medium teal */
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
 
-        ul {
-            list-style: none;
-        }
+    .hero-image {
+        flex-shrink: 0;
+        border-radius: 8px;
+        overflow: hidden;
+        width: 150px;
+        height: 150px;
+    }
 
-        /* Header Styles */
-        .main-header {
-            background-color: #fff; /* White background for the header */
-            padding: 15px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+    .hero-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
 
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
+    /* Quick Background */
+    .background-section {
+        background-color: #e9f5f0; /* Light green */
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+    }
 
-        .logo a {
-            font-family: 'Lora', serif;
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--accent-color-1);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+    .background-section h2 {
+        font-size: 2em;
+        color: #1e7e64;
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
 
-        .main-nav .nav-list {
-            display: flex;
-            gap: 30px;
-        }
+    .background-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+    }
 
-        .main-nav .nav-list a {
-            font-size: 16px;
-            color: var(--secondary-color);
-            font-weight: 500;
-            padding: 5px 0;
-            transition: color 0.3s ease;
-            position: relative;
-        }
+    .background-info div {
+        background-color: #d4ede5; /* Slightly darker light green */
+        padding: 15px;
+        border-radius: 6px;
+        font-size: 0.9em;
+    }
 
-        .main-nav .nav-list a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent-color-2);
-            transition: width 0.3s ease;
-        }
+    .background-info strong {
+        color: #1e7e64;
+        display: block;
+        margin-bottom: 5px;
+    }
 
-        .main-nav .nav-list a:hover {
-            color: var(--accent-color-2);
-        }
+    /* Creative Work Showcase */
+    .showcase-section {
+        margin-bottom: 30px;
+    }
 
-        .main-nav .nav-list a:hover::after {
-            width: 100%;
-        }
+    .showcase-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+        margin-bottom: 15px;
+    }
 
-        /* Dropdown Menu */
-        .dropdown {
-            position: relative;
-        }
+    .showcase-grid img {
+        width: 100%;
+        height: auto;
+        border-radius: 6px;
+        display: block;
+    }
 
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #fff;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
-            z-index: 1;
-            border-top: 3px solid var(--accent-color-2);
-        }
+    .showcase-section p.caption {
+        font-size: 0.85em;
+        color: #777;
+        text-align: center;
+    }
 
-        .dropdown-content a {
-            color: var(--secondary-color);
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-            transition: background-color 0.2s ease;
-        }
+    /* Three Fun Facts */
+    .fun-facts-section {
+        background-color: #c1e4d6; /* Medium green */
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+        color: #fff;
+    }
 
-        .dropdown-content a:hover {
-            background-color: var(--primary-color);
-            color: var(--accent-color-1);
-        }
+    .fun-facts-section h2 {
+        font-size: 2em;
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
 
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
+    .fun-facts-list div {
+        background-color: #9ed8c1; /* Slightly lighter medium green */
+        padding: 15px;
+        border-radius: 6px;
+        margin-bottom: 10px;
+        font-size: 0.9em;
+    }
 
-        .utility-icons {
-            display: flex;
-            gap: 20px;
-        }
+    /* Things I Love */
+    .love-section {
+        margin-bottom: 30px;
+    }
 
-        .icon-button {
-            background: none;
-            border: none;
-            font-size: 20px;
-            color: var(--secondary-color);
-            cursor: pointer;
-            transition: color 0.3s ease;
-            position: relative;
-        }
+    .love-section h2 {
+        font-size: 2em;
+        color: #1e7e64;
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
 
-        .icon-button:hover {
-            color: var(--accent-color-2);
-        }
+    .love-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+        margin-bottom: 15px;
+    }
 
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background-color: var(--accent-color-2);
-            color: white;
-            font-size: 12px;
-            border-radius: 50%;
-            padding: 2px 6px;
-            line-height: 1;
-        }
+    .love-grid img {
+        width: 100%;
+        height: auto;
+        border-radius: 6px;
+        display: block;
+    }
 
-        .hamburger-menu {
-            display: none; /* Hidden on desktop */
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: var(--secondary-color);
-            cursor: pointer;
-        }
+    .love-section p.caption {
+        font-size: 0.85em;
+        color: #777;
+        text-align: center;
+    }
 
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .main-nav {
-                display: none; /* Hide main nav on smaller screens */
-                flex-direction: column;
-                width: 100%;
-                position: absolute;
-                top: 70px; /* Adjust based on header height */
-                left: 0;
-                background-color: #fff;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-                padding-bottom: 10px;
-            }
+    /* Footer */
+    .footer-section {
+        background-color: #1e7e64; /* Dark teal */
+        color: #fff;
+        padding: 30px 20px;
+        border-radius: 8px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        align-items: start;
+    }
 
-            .main-nav.active {
-                display: flex;
-            }
+    .footer-section h3 {
+        font-size: 1.5em;
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
 
-            .main-nav .nav-list {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
-                padding: 15px 0;
-            }
+    .footer-section p, .footer-section a {
+        color: #d4ede5;
+        font-size: 0.9em;
+        text-decoration: none;
+    }
 
-            .main-nav .nav-list li {
-                width: 100%;
-                text-align: center;
-            }
+    .footer-section a:hover {
+        text-decoration: underline;
+    }
 
-            .main-nav .nav-list a {
-                padding: 10px 0;
-                display: block;
-            }
+    .social-links a {
+        display: inline-block;
+        margin-right: 10px;
+        font-size: 1.2em;
+    }
+</style>
 
-            .dropdown-content {
-                position: static; /* Make dropdown full width */
-                box-shadow: none;
-                border-top: none;
-            }
-
-            .dropdown-content a {
-                padding-left: 40px; /* Indent dropdown items */
-            }
-
-            .utility-icons {
-                gap: 15px;
-            }
-
-            .hamburger-menu {
-                display: block; /* Show hamburger on smaller screens */
-            }
-
-            .header-container {
-                justify-content: space-between;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .logo a {
-                font-size: 24px;
-            }
-
-            .utility-icons {
-                gap: 10px;
-            }
-
-            .icon-button {
-                font-size: 18px;
-            }
-        }
-    </style>
-    </head>
+</head>
 <body>
-    <header class="main-header">
-        <div class="header-container">
-            <div class="logo">
-                <a href="#">Reminder Perfumes</a>
+<div class="container">
+<section class="hero">
+<div class="hero-info">
+<h1>Hannah Morales</h1>
+<p>I'm a Creative Marketing Assistant</p>
+</div>
+<div class="hero-image">
+<img src="" alt="Hannah Morales">
+</div>
+</section>
+    <section class="background-section">
+        <h2>A Quick Background</h2>
+        <div class="background-info">
+            <div>
+                <strong>I'm based in</strong>
+                <p>PHILADELPHIA, JUST OFF THE FREEWAY</p>
             </div>
-            <nav class="main-nav">
-                <ul class="nav-list">
-                    <li><a href="#">Home</a></li>
-                    <li class="dropdown">
-                        <a href="#">Shop <i class="fas fa-caret-down"></i></a>
-                        <div class="dropdown-content">
-                            <a href="#">For Her</a>
-                            <a href="#">For Him</a>
-                            <a href="#">Unisex</a>
-                            <a href="#">New Arrivals</a>
-                            <a href="#">Best Sellers</a>
-                            <a href="#">Collections</a>
-                        </div>
-                    </li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Our Craftsmanship</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="utility-icons">
-                <button class="icon-button"><i class="fas fa-search"></i></button>
-                <a href="#" class="icon-button"><i class="fas fa-shopping-bag"></i><span class="cart-count">0</span></a>
-                <a href="#" class="icon-button"><i class="fas fa-user"></i></a>
+            <div>
+                <strong>I worked at</strong>
+                <p>NON-PROFIT (2 YEARS) - LIMITED (2 YEARS) - TARGET AND MAURO (2 YEARS)</p>
             </div>
-            <button class="hamburger-menu">
-                <i class="fas fa-bars"></i>
-            </button>
+            <div>
+                <strong>My roles were</strong>
+                <p>MARKETING ASSISTANT, GRAPHIC DESIGNER</p>
+            </div>
         </div>
-    </header>
+    </section>
 
-    <main style="padding: 40px; text-align: center;">
-        <h2>Welcome to Reminder Perfumes</h2>
-        <p>This is a placeholder for your main content area. You can add your hero section, featured products, etc., here.</p>
-        <p>The header navigation is now fully self-contained within this HTML file.</p>
-    </main>
+    <section class="showcase-section">
+        <h2>Here's a showcase of my creative work!</h2>
+        <div class="showcase-grid">
+            <img src="[https://via.placeholder.com/150/f0f0f0/ccc?Text=Work+1](https://via.placeholder.com/150/f0f0f0/ccc?Text=Work+1)" alt="Creative Work 1">
+            <img src="[https://via.placeholder.com/250/e0e0e0/bbb?Text=Work+2](https://via.placeholder.com/250/e0e0e0/bbb?Text=Work+2)" alt="Creative Work 2">
+            <img src="[https://via.placeholder.com/100/d0d0d0/aaa?Text=Work+3](https://via.placeholder.com/100/d0d0d0/aaa?Text=Work+3)" alt="Creative Work 3">
+            <img src="[https://via.placeholder.com/200/c0c0c0/999?Text=Work+4](https://via.placeholder.com/200/c0c0c0/999?Text=Work+4)" alt="Creative Work 4">
+        </div>
+    </section>
 
+    <section class="fun-facts-section">
+        <h2>Three Fun Facts</h2>
+        <div class="fun-facts-list">
+            <div>
+                <strong>I used to be a freelancer</strong>
+                <p>Creating social media content and logos for small businesses in my hometown.</p>
+            </div>
+            <div>
+                <strong>I run a creative blog on the side</strong>
+                <p>Where I share design tips and document personal & client projects that I've done since high school.</p>
+            </div>
+            <div>
+                <strong>I love collecting art materials</strong>
+                <p>I do a lot of digital art, but I also love collecting crafty materials like paint and sketchbooks.</p>
+            </div>
+        </div>
+    </section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const hamburgerMenu = document.querySelector('.hamburger-menu');
-            const mainNav = document.querySelector('.main-nav');
-            const dropdownToggle = document.querySelector('.dropdown > a');
+    <section class="love-section">
+        <h2>Things I Love</h2>
+        <div class="love-grid">
+            <img src="[https://via.placeholder.com/180/f5f5f5/ddd?Text=Love+1](https://via.placeholder.com/180/f5f5f5/ddd?Text=Love+1)" alt="Things I Love 1">
+            <img src="[https://via.placeholder.com/160/e5e5e5/ccc?Text=Love+2](https://via.placeholder.com/160/e5e5e5/ccc?Text=Love+2)" alt="Things I Love 2">
+            <img src="[https://via.placeholder.com/200/d5d5d5/bbb?Text=Love+3](https://via.placeholder.com/200/d5d5d5/bbb?Text=Love+3)" alt="Things I Love 3">
+        </div>
+        <p class="caption">These are just some of the things that make me feel most alive!</p>
+    </section>
 
-            hamburgerMenu.addEventListener('click', () => {
-                mainNav.classList.toggle('active');
-            });
+    <footer class="footer-section">
+        <div>
+            <h3>Supra Portium Co.</h3>
+        </div>
+        <div>
+            <h3>Contact</h3>
+            <p><a href="mailto:hello@reallygreatsite.com">HELLO@REALLYGREATSITE.COM</a></p>
+            <p><a href="mailto:reallygreatsite@com">REALLYGREATSITE@COM</a></p>
+        </div>
+        <div>
+            <h3>My Socials</h3>
+            <div class="social-links">
+                <a href="#" target="_blank" rel="noopener noreferrer">f</a>
+                <a href="#" target="_blank" rel="noopener noreferrer">t</a>
+                <a href="#" target="_blank" rel="noopener noreferrer">in</a>
+            </div>
+        </div>
+        <div>
+            <h3>Looking forward to working with everyone!</h3>
+        </div>
+    </footer>
+</div>
 
-            // Close nav when clicking outside on mobile
-            document.addEventListener('click', (event) => {
-                if (!mainNav.contains(event.target) && !hamburgerMenu.contains(event.target) && mainNav.classList.contains('active')) {
-                    mainNav.classList.remove('active');
-                }
-            });
-
-            // Handle dropdown click on mobile to prevent immediate navigation
-            if (dropdownToggle) {
-                dropdownToggle.addEventListener('click', (event) => {
-                    // Check if the dropdown is open or if it's on a mobile view
-                    if (window.innerWidth <= 992) { // Match the media query breakpoint
-                        event.preventDefault(); // Prevent default link behavior
-                        const dropdownContent = event.target.nextElementSibling;
-                        if (dropdownContent && dropdownContent.classList.contains('dropdown-content')) {
-                            dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
-                        }
-                    }
-                });
-            }
-
-            // Optional: Close dropdowns when another one is opened
-            const dropdowns = document.querySelectorAll('.dropdown');
-            dropdowns.forEach(dropdown => {
-                dropdown.addEventListener('click', (event) => {
-                    if (window.innerWidth <= 992) {
-                        dropdowns.forEach(otherDropdown => {
-                            if (otherDropdown !== dropdown) {
-                                const otherContent = otherDropdown.querySelector('.dropdown-content');
-                                if (otherContent) {
-                                    otherContent.style.display = 'none';
-                                }
-                            }
-                        });
-                    }
-                });
-            });
-
-            // Reset dropdown display on resize for desktop
-            window.addEventListener('resize', () => {
-                if (window.innerWidth > 992) {
-                    document.querySelectorAll('.dropdown-content').forEach(content => {
-                        content.style.display = ''; // Reset to default CSS
-                    });
-                    mainNav.classList.remove('active'); // Ensure nav is hidden if resized from mobile while open
-                }
-            });
-        });
-    </script>
-    </body>
+</body>
 </html>
